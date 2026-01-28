@@ -3,7 +3,7 @@
 namespace Bigfork\SilverStripeOAuth\Client\Authenticator;
 
 use SilverStripe\Control\HTTPRequest;
-use SilverStripe\ORM\ValidationResult;
+use SilverStripe\Core\Validation\ValidationResult;
 use SilverStripe\Security\Authenticator as SilverStripeAuthenticator;
 use SilverStripe\Security\Member;
 use SilverStripe\Security\MemberAuthenticator\LogoutHandler;
@@ -26,12 +26,12 @@ class Authenticator implements SilverStripeAuthenticator
         return LoginHandler::create($link, $this);
     }
 
-    public function authenticate(array $data, HTTPRequest $request, ValidationResult &$result = null)
+    public function authenticate(array $data, HTTPRequest $request, ?ValidationResult &$result = null)
     {
         // No-op
     }
 
-    public function checkPassword(Member $member, $password, ValidationResult &$result = null)
+    public function checkPassword(Member $member, $password, ?ValidationResult &$result = null)
     {
         // No-op
     }
