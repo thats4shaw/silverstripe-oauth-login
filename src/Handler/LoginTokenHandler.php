@@ -111,8 +111,9 @@ class LoginTokenHandler implements TokenHandler
      */
     protected function getSession()
     {
-        if (Controller::has_curr()) {
-            return Controller::curr()->getRequest()->getSession();
+        $controller = Controller::curr();
+        if ($controller !== null) {
+            return $controller->getRequest()->getSession();
         }
 
         return Injector::inst()->create(Session::class, isset($_SESSION) ? $_SESSION : []);
